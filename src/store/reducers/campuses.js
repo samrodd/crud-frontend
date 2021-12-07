@@ -6,7 +6,7 @@ const allCampuses = (state = [], action) => {
     case at.FETCH_ALL_CAMPUSES:
       return action.payload;
     case at.DELETE_CAMPUS:
-      return action.payload;
+      return state.filter(campus => campus.id!==action.payload);
     case at.ADD_CAMPUS:
       return [...state, action.payload]
     default:

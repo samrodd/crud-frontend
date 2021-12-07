@@ -99,15 +99,13 @@ const AllCampusesView = (props) => {
       </AppBar>
       {props.allCampuses.map((campus) => (
         <div key={campus.id}>
-          <Link to={`/campus/${campus.id}`}>
-            <h1>{campus.name}</h1>
-          </Link>
+          <h1><Link to={`/campus/${campus.id}`}>
+            {campus.name}
+          </Link> <button onClick={() => deleteCampus(campus.id)}>X</button></h1>
           <p>{campus.description}</p>
           <img src={campus.imgUrl} alt="campus image"/>
-          <Link to={`/campuses`}>
-          <button onClick={() => deleteCampus(campus.id)}>X</button>
 
-          </Link>
+
           
         </div>
       ))} 
