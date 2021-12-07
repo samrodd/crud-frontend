@@ -51,6 +51,7 @@ export const deleteCampusThunk = campusId => async dispatch => {
   } catch(err) {
     console.error(err);
   }
+
 };
 
 
