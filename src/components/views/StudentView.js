@@ -101,7 +101,10 @@ const StudentView = (props) => {
         {student.campus.name}
         </Link></h2>
         <h3>GPA: {student.gpa}</h3>
-
+        <Link to={`/students/editstudent/${student.id}`}>
+           <button>Edit</button>
+            
+        </Link> 
         <Link to={`/students/`}>
         <button onClick={() => deleteStudent(student.id)}>Delete</button>
         </Link>
