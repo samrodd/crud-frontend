@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import EditStudentView from '../views/EditStudentView';
-import { editStudentThunk } from '../../store/thunks';
+import { editStudentThunk, fetchStudentThunk } from '../../store/thunks';
 
 
 class EditStudentContainer extends Component {
@@ -18,6 +18,10 @@ class EditStudentContainer extends Component {
     };
 }
 
+  componentDidMount() {
+    //getting campus ID from url
+    this.props.fetchStudent(this.props.match.params.id);
+  }
 
     handleChange = event => {
       this.setState({
@@ -75,7 +79,8 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
     return({
-        editStudent: (student) => dispatch(editStudentThunk(student))
+        editStudent: (student) => dispatch(editStudentThunk(student)),
+        fetchStudent: (id) => dispatch(fetchStudentThunk(id))
     })
 }
 
